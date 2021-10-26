@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-6(o7g4^z0t&mu##60x$2n1of&^7#$u-9#*i)a6)52!ta6nmgvf'
+SECRET_KEY = 'django-insecure-9_n_im=t2)2=_4!qzf!*g)@^-zq1&i*lkz_*$es$zxw34q_3y4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,10 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',
 ]
-
-AUTH_USER_MODEL = 'myapp.Customer'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -74,18 +70,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shopdb',
-        'USER': 'myuser',
-        'PASSWORD': 'mypass',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -127,14 +118,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static_dev'),
-)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
